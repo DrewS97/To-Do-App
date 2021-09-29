@@ -22,17 +22,17 @@ namespace ToDoList {
       {
         case "1":
           Console.Clear();
-          ToDos.PrintList();
+          Task.PrintList();
         break;
 
         case "2":
           Console.Clear();
-          ToDos.AddToDo();
+          Task.AddTask();
         break;
 
         case "3":
           Console.Clear();
-          Console.WriteLine("To Do");
+          Task.RemoveTask();
         break;
 
         case "q":
@@ -44,7 +44,6 @@ namespace ToDoList {
       
       if(answer != "q")
       {
-        
         Menus();
       }
     }

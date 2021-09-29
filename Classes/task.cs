@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using System.Globalization;
 
 namespace ToDoList {
-  public class ToDos {
+  public class Task {
     public string Name {get; set;}
     public string Description {get; set;}
     public DateTime DeadLine {get; set;}
-    public static List<ToDos> TDList = new List<ToDos>();
+    public static List<Task> TDList = new List<Task>();
 
-    public ToDos()
+    public Task()
     {
       Name = "";
       Description = "";
     }
 
-    public ToDos(string name, string des, DateTime deadline)
+    public Task(string name, string des, DateTime deadline)
     {
       Name = name;
       Description = des;
@@ -25,14 +25,14 @@ namespace ToDoList {
     public static void PrintList()
     {
       Console.WriteLine("\n----------------------------------------------------To Do List----------------------------------------------------------\n");
-      foreach(ToDos td in TDList)
+      foreach(Task td in TDList)
       {
         Console.WriteLine(td.ToString());
       }
       Console.WriteLine("\n\n\n\n");
     }
 
-    public static void AddToDo()
+    public static void AddTask()
     {
       //Set DateTime settings
       CultureInfo enUS = new CultureInfo("en-US");
@@ -55,7 +55,7 @@ namespace ToDoList {
       if (DateTime.TryParseExact(deadlineString, "MM/dd/yyyy hh:mm", enUS, DateTimeStyles.None, out deadline))
       {
         deadline = DateTime.Parse(deadlineString);
-        TDList.Add(new ToDos(name, des, deadline));
+        TDList.Add(new Task(name, des, deadline));
         Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine($"{name} successfully added to list!");
         Console.ResetColor();
@@ -65,6 +65,25 @@ namespace ToDoList {
         Console.ForegroundColor = ConsoleColor.DarkRed;
         Console.WriteLine("\nPlease enter your deadline in the format of: mm/dd/yyyy hh:mm\n");
         Console.ResetColor();
+      }
+    }
+
+    public static void RemoveTask()
+    {
+      Console.WriteLine("Enter the name of the task you would like to remove.");
+      string answer = Console.ReadLine();
+
+      foreach(Task t in TDList)
+      {
+        if(t.Name == answer)
+        {
+          TDList.Remove(t);
+          break;
+        }
+        else
+        {
+          continue;
+        }
       }
     }
 
