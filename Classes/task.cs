@@ -34,10 +34,6 @@ namespace ToDoList {
 
     public static void AddTask()
     {
-      //Set DateTime settings
-      CultureInfo enUS = new CultureInfo("en-US");
-      DateTime deadline;
-
       //Create Name
       Console.WriteLine("\nEnter the name of your task: ");
       string name = Console.ReadLine();
@@ -47,25 +43,25 @@ namespace ToDoList {
       string des = Console.ReadLine();
 
       //Create Deadline
-      Console.WriteLine("\nEnter a deadline for when the task should be completed by in the format of: mm/dd/yyyy 00:00");
-      Console.WriteLine("For example: June 1st 2020 at 1:00am would be -- 06/01/2020 13:00");
-      string deadlineString = Console.ReadLine();
+      Console.WriteLine("\nCreating the deadline - Enter the year in yyyy: ");
+      int year = Int32.Parse(Console.ReadLine());
+      Console.WriteLine("\nCreating the deadline - Enter the Month mm: ");
+      int month = Int32.Parse(Console.ReadLine());
+      Console.WriteLine("\nCreating the deadline - Enter the day in dd: ");
+      int day = Int32.Parse(Console.ReadLine());
+      Console.WriteLine("\nCreating the deadline - Enter the hour in hh: ");
+      int hour = Int32.Parse(Console.ReadLine());
+      Console.WriteLine("\nCreating the deadline - Enter the minute in mm: ");
+      int minute = Int32.Parse(Console.ReadLine());
+      Console.WriteLine("\nCreating the deadline - Enter the second in ss: ");
+      int second = Int32.Parse(Console.ReadLine());
 
-      //Ensure DeadLine was entered with proper formatting
-      if (DateTime.TryParseExact(deadlineString, "MM/dd/yyyy hh:mm", enUS, DateTimeStyles.None, out deadline))
-      {
-        deadline = DateTime.Parse(deadlineString);
-        TDList.Add(new Task(name, des, deadline));
-        Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"{name} successfully added to list!");
-        Console.ResetColor();
-      }
-      else
-      {
-        Console.ForegroundColor = ConsoleColor.DarkRed;
-        Console.WriteLine("\nPlease enter your deadline in the format of: mm/dd/yyyy hh:mm\n");
-        Console.ResetColor();
-      }
+      DateTime deadline = new DateTime(year, month, day, hour, minute, second);
+
+      TDList.Add(new Task(name, des, deadline));
+      Console.ForegroundColor = ConsoleColor.Green;
+      Console.WriteLine($"{name} successfully added to list!");
+      Console.ResetColor();
     }
 
     public static void RemoveTask()
