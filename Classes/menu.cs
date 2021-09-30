@@ -6,8 +6,9 @@ namespace ToDoList {
     {
       Console.WriteLine("------------To Do List------------");
       Console.WriteLine("1. Show List");
-      Console.WriteLine("2. Add a new task");
-      Console.WriteLine("3. Remove a task");
+      Console.WriteLine("2. Print Task Names");
+      Console.WriteLine("3. Add A New Task");
+      Console.WriteLine("4. Remove A Task");
       Console.WriteLine("Enter \"q\" to quit.");
       Console.WriteLine("----------------------------------\n");
 
@@ -17,26 +18,26 @@ namespace ToDoList {
     public static void MenuUse()
     {
       string answer = Console.ReadLine();
-
+      Console.Clear();
       switch(answer)
       {
         case "1":
-          Console.Clear();
           Task.PrintList();
         break;
 
         case "2":
-          Console.Clear();
-          Task.AddTask();
+          Task.PrintNames();
         break;
 
         case "3":
-          Console.Clear();
+          Task.AddTask();
+        break;
+
+        case "4":
           Task.RemoveTask();
         break;
 
         case "q":
-          Console.Clear();
           Console.ForegroundColor = ConsoleColor.Cyan;
           Console.WriteLine("\nHave a productive day!");
         break;
