@@ -83,6 +83,7 @@ namespace ToDoList {
     {
       Console.WriteLine("Enter the name of the task you would like to remove.");
       string answer = Console.ReadLine();
+  
       bool contained = false;
 
       while(contained == false)
@@ -107,12 +108,14 @@ namespace ToDoList {
           answer = Console.ReadLine();
         }
       }
-
+      
+      string name = "";
       foreach(Task t in TDList)
       {
         if(t.Name == answer)
         {
           TDList.Remove(t);
+          name = t.Name;
           break;
         }
         else
@@ -120,6 +123,9 @@ namespace ToDoList {
           continue;
         }
       }
+      Console.ForegroundColor = ConsoleColor.Green;
+      Console.WriteLine($"\n{name} successfully removed!\n");
+      Console.ResetColor();
     }
 
     public static DateTime GetDateTime()
