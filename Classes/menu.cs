@@ -3,6 +3,7 @@ using System.Linq;
 
 namespace ToDoList {
   public class Menu {
+    //Prints Menu
     public static void Menus()
     {
       Console.WriteLine("------------To Do List------------");
@@ -16,6 +17,7 @@ namespace ToDoList {
       MenuUse();
     }
 
+    //Makes Menu Interactable
     public static void MenuUse()
     {
       string[] correctAnswers = new string[5] {"1", "2", "3", "4", "q"};
