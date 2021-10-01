@@ -27,12 +27,14 @@ namespace ToDoList {
     public static void PrintList()
     {
       Console.BackgroundColor = ConsoleColor.DarkYellow;
-      Console.ForegroundColor = ConsoleColor.Black;    
-      Console.WriteLine("\n-------------------------------------------------------To Do List------------------------------------------------------------");
+      Console.ForegroundColor = ConsoleColor.Black;
+      Console.WriteLine(" |                                                                                                                               | ");
+      Console.WriteLine(" |--------------------------------------------------------To Do List-------------------------------------------------------------| ");
       foreach(Task td in TDList)
       {
         Console.WriteLine(td.ToString());
       }
+      Console.WriteLine(" |                                                                                                                               | ");
       Console.ResetColor();
       Console.WriteLine("\n\n\n\n");
     }
@@ -135,8 +137,8 @@ namespace ToDoList {
     //For printing the list
     public override string ToString()
     {
-      string tDString = String.Format($"Name: {Name, -20} | Description: {Description, -50} | Deadline: {DeadLine, -20}");
-      tDString += "\n-----------------------------------------------------------------------------------------------------------------------------";
+      string tDString = String.Format($" | Name: {Name, -20} | Description: {Description, -50} | Deadline: {DeadLine, -20} | ");
+      tDString += "\n |-------------------------------------------------------------------------------------------------------------------------------| ";
       return tDString;
     }
   }

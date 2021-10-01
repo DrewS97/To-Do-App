@@ -6,13 +6,23 @@ namespace ToDoList {
     //Prints Menu
     public static void Menus()
     {
-      Console.WriteLine("------------To Do List------------");
-      Console.WriteLine("1. Show List");
-      Console.WriteLine("2. Print Task Names");
-      Console.WriteLine("3. Add A New Task");
-      Console.WriteLine("4. Remove A Task");
-      Console.WriteLine("Enter \"q\" to quit.");
-      Console.WriteLine("----------------------------------\n");
+      Console.ForegroundColor = ConsoleColor.Black;
+      Console.BackgroundColor = ConsoleColor.DarkYellow;
+      Console.WriteLine(" |                                   | ");
+      Console.WriteLine(" |---------------Menu----------------| ");
+      Console.WriteLine(" | 1. Show To Do List                | ");
+      Console.WriteLine(" |-----------------------------------| ");
+      Console.WriteLine(" | 2. Print Task Names               | ");
+      Console.WriteLine(" |-----------------------------------| ");
+      Console.WriteLine(" | 3. Add A New Task                 | ");
+      Console.WriteLine(" |-----------------------------------| ");
+      Console.WriteLine(" | 4. Remove A Task                  | ");
+      Console.WriteLine(" |-----------------------------------| ");
+      Console.WriteLine(" | Enter \"q\" to quit                 | ");
+      Console.WriteLine(" |-----------------------------------| ");
+      Console.WriteLine(" |                                   | \n");
+
+      Console.ResetColor();
 
       MenuUse();
     }
