@@ -50,7 +50,7 @@ namespace ToDoList {
         Console.WriteLine("---q - Exits the application.");
         Console.WriteLine("---------------------------------------------------------------------------------------------\n");
         Console.ResetColor();
-        answer = Console.ReadLine();
+        Menus();
       }
 
       switch(answer)

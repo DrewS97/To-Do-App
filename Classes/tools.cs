@@ -16,13 +16,18 @@ namespace ToDoList {
          //Year
         Console.WriteLine("\nCreating the deadline - Enter the year in this format: yyyy");
         string yearlen = Console.ReadLine();
-        int year = currentYear;
+        int year = 0;
+        if(IsDigitsOnly(yearlen) == true)
+        {
+          year = Int32.Parse(yearlen);
+        }
         while(IsDigitsOnly(yearlen) == false || yearlen.Length != 4 || year > 2200 || year < currentYear)
         {
           Console.ForegroundColor = ConsoleColor.DarkRed;
           Console.WriteLine($"\nPlease enter a 4 digit year between {currentYear} and 2200 in this format: yyyy.");
           Console.ResetColor();
           yearlen = Console.ReadLine();
+          year = Int32.Parse(yearlen);
         }
         year = Int32.Parse(yearlen);
 
